@@ -364,7 +364,6 @@ $(document).ready(function(){
     $('.sidebar a').each(function () {
       var currLink = $(this);
       var refElement = $(currLink.attr("href"));
-      // 检查元素是否存在且位置是否在可视范围内 (增加100px的偏移)
       if (refElement.position().top - 100 <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
         $('.sidebar a').removeClass("active");
         currLink.addClass("active");
