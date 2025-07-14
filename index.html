@@ -126,8 +126,8 @@
     <li><a href="#findings">Key Findings</a></li>
     <li><a href="#analysis">Analysis</a></li>
     <li><a href="#implications">Implications</a></li>
-    <li><a href="#faq">Readings</a></li>
     <li><a href="#cite">Citation</a></li>
+    <li><a href="#faq">Readings</a></li>
   </ul>
 </div>
 
@@ -223,32 +223,86 @@
   </div>
 </section>
 
-<section class="section hero is-light" id="analysis">
-  <div class="container is-max-desktop">
+<section class="hero is-small" id="analysis">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
       <h2 class="title is-4 has-text-centered">How Does It Happen?</h2>
-      <div class="content has-text-justified">
-        <p>在这里放置“交互式演示”模块的内容...</p>
-        <div style="height: 400px;"></div>
+      <p>We investigated the underlying mechanisms of this human-like cognitive pattern in LLMs through a multi-level analysis across neuronal, representational, and informational aspects.</p>
+      <div id="results-carousel" class="carousel results-carousel">
+
+
+        <div class="item">
+          <figure style="height: 350px; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+            <img src="static/images/NeuronDist.png" alt="Distribution of temporal-preferential neurons" style="max-height: 100%; max-width: 100%; width: auto; height: auto; object-fit: contain;"/>
+          </figure>
+          <h2 class="subtitle has-text-centered" style="padding: 0rem 2rem 2rem 2rem;">
+            Level 1: Neural Coding - finding temporal-preferential neurons
+            <p class="is-size-6 has-text-weight-normal" style="margin-top: 0.75rem;">
+              This figure shows the distribution of temporal-preferential neurons across model layers. We identified these neurons by their consistently stronger activation to inputs formatted as "Year: x-x-x-x" compared to the control condition "Number: x-x-x-x". These specialized neurons represent a small fraction of the total, typically ranging from 0.67% to 1.71%, and are mostly distributed in the middle-to-late layers of the network.
+            </p>
+          </h2>
+        </div>
+        
+        <div class="item">
+          <figure style="height: 350px; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+            <img src="static/images/neurons.png" alt="Mean activation of temporal-preferential neurons" style="max-height: 100%; max-width: 100%; width: auto; height: auto; object-fit: contain;"/>
+          </figure>
+          <h2 class="subtitle has-text-centered" style="padding: 0rem 2rem 2rem 2rem;">
+            Level 1: Neural Coding - Logarithmic Compression (Weber-Fechner Law)
+            <p class="is-size-6 has-text-weight-normal" style="margin-top: 0.75rem; text-align: left;">
+              The <strong>upper panels</strong> show the mean activation of the top 1000 temporal-preferential neurons for each year from 1525 to 2524. In larger models, a distinct trough appears, with activation increasing in a logarithmic-like compression pattern as years recede from this point. This is consistent with the neural basis of the Weber-Fechner law found in the human brain, likely a convergent solution for efficient information coding.
+              <br><br>
+              The <strong>bottom panels</strong> show a layer-wise regression analysis of neuron activations against the logarithmic distance from a subjective reference point. The results indicate that neurons across all the models exhibit this logarithmic encoding scheme to some extent.
+            </p>
+          </h2>
+        </div>
+        
+        <div class="item">
+          <figure style="height: 350px; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+            <img src="static/images/representation.png" alt="Layer-wise representation analysis" style="max-height: 100%; max-width: 100%; width: auto; height: auto; object-fit: contain;"/>
+          </figure>
+          <h2 class="subtitle has-text-centered" style="padding: 0rem 2rem 2rem 2rem;">
+            Level 2: Representational Structure - Evolving a Timeline
+            <p class="is-size-6 has-text-weight-normal" style="margin-top: 0.75rem; text-align: left;">
+              We extracted residual stream representations from each model layer during the similarity judgment task to analyze their evolving patterns. We then regressed these representations against three theoretical distances: the <span style="color:#456990; font-weight: bold;">Log-Linear distance</span> (circle, numerical features), the <span style="color:#48C0AA; font-weight: bold;">Levenshtein distance</span> (triangle, string features), and the <span style="color:#EF767A; font-weight: bold;">Reference-Log-Linear distance</span> (square, subjective timeline with Weber's law).
+              <br><br>
+              Results show that in larger models, a 'year' is progressively transformed from a numerical feature in early layers to a temporal value in deeper layers. In Qwen models, this involves an active suppression of the initial numerical representation as the temporal one emerges.
+            </p>
+          </h2>
+        </div>
+        
+        <div class="item">
+          <figure style="height: 350px; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+            <img src="static/images/embedding.png" alt="Cosine similarity of year embeddings" style="max-height: 100%; max-width: 100%; width: auto; height: auto; object-fit: contain;"/>
+          </figure>
+          <h2 class="subtitle has-text-centered" style="padding: 0rem 2rem 2rem 2rem;">
+            Level 3: Information Exposure - The Blueprint in the Data
+            <p class="is-size-6 has-text-weight-normal" style="margin-top: 0.75rem; text-align: left;">
+              We used three independent, pre-trained embedding models to test if this pattern pre-exists in the training data. We computed the pairwise cosine similarity of embeddings for each "Year: x-x-x-x" from 1525 to 2524.
+              <br><br>
+              The results revealed a similar, non-linear temporal structure inherent in the data corpora. In particular, future years show higher similarity to each other, which is likely due to their sparse information richness in the training data. This suggests the training corpora provide the raw material for the temporal cognition we observe in LLMs.
+            </p>
+          </h2>
+        </div>
+      
+
       </div>
+    </div>
   </div>
 </section>
+
 
 <section class="section" id="implications">
   <div class="container is-max-desktop">
       <h2 class="title is-4 has-text-centered">How To Understand These Results?</h2>
       <div class="content has-text-justified">
-        <p>在这里放置“理论视角与意义”模块的内容...</p>
-        <div style="height: 400px;"></div>
-      </div>
-  </div>
-</section>
-
-<section class="section hero is-light" id="faq">
-  <div class="container is-max-desktop">
-      <h2 class="title is-4 has-text-centered">Related Readings</h2>
-      <div class="content has-text-justified">
-        <p>在这里放置“常见问题解答”模块的内容...</p>
-        <div style="height: 400px;"></div>
+        <p>
+          Our work establishes an <span style="color: indianred;">experientialist perspective</span> to understand these findings. We propose that Large Language Models (LLMs) do not merely reorganize training data, but actively construct a subjective model of the world from their informational 'experience'. This viewpoint helps us move beyond seeing LLMs as either simple statistical engines or human-like minds. While they exhibit human-like cognitive patterns, they possess fundamentally different architectures and learn from a static, disembodied world of text. Therefore, the most significant risk may not be that LLMs become too human, but that they develop powerful yet <span style="color: indianred;">alien cognitive frameworks</span> we cannot intuitively anticipate.
+        </p>
+        <p>
+          This perspective has profound implications for AI alignment. Traditional approaches focus on controlling a model’s external behavior, but the experientialist view suggests that robust alignment requires engaging directly with the formative process by which a model builds its internal world. The goal must shift from simply trying to <span style="color: indianred;">make AI safe</span> through external constraints to <span style="color: indianred;">make safe AI</span> from the ground up—systems whose emergent cognitive patterns are inherently aligned with human values. This calls for multi-level efforts, from monitoring a model's internal representations to carefully curating the environments it learns from.
+        </p>
+        <div style="height: 100px;"></div>
       </div>
   </div>
 </section>
@@ -262,6 +316,31 @@
 </section>
 <!--End BibTex citation -->
 
+<section class="section" id="faq">
+  <div class="container is-max-desktop">
+      <h2 class="title is-4 has-text-centered">Personally Recommended Readings</h2>
+      <div class="content">
+        <ol>
+          <li>
+            <a href="https://arxiv.org/abs/2502.01540" target="_blank">What is a Number, That a Large Language Model May Know It?</a><br>
+            <em>Raja Marjieh, Veniamin Veselovsky, Thomas L. Griffiths, Ilia Sucholutsky (2025)</em>
+          </li>
+          <li>
+            <a href="https://press.uchicago.edu/ucp/books/book/chicago/M/bo3637992.html" target="_blank">Metaphors We Live By</a><br>
+            <em>George Lakoff, Mark Johnson (1981)</em>
+          </li>
+          <li>
+            <a href="https://mitpress.mit.edu/9780262531566/being-there/" target="_blank">Being there: Putting Brain, Body, and World Together Again</a><br>
+            <em>Andy Clark (1997)</em>
+          </li>
+          <li>
+            <a href="https://www.goodreads.com/book/show/95558.Solaris" target="_blank">Solaris</a><br>
+            <em>Stanislaw Lem (1961)</em>
+          </li>
+        </ol>
+      </div>
+  </div>
+</section>
 
 </div> <script>
 $(document).ready(function(){
